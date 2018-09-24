@@ -97,6 +97,8 @@ func (driver *stdoutStorage) AddStats(cInfo *info.ContainerInfo, stats *info.Con
 	containerName := cInfo.ContainerReference.Name
 	if len(cInfo.ContainerReference.Aliases) > 0 {
 		containerName = cInfo.ContainerReference.Aliases[0]
+	} else {
+		containerName = cInfo.ContainerReference.Name
 	}
 
 	var buffer bytes.Buffer

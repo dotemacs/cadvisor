@@ -102,11 +102,12 @@ func (driver *stdoutStorage) AddStats(cInfo *info.ContainerInfo, stats *info.Con
 	// }
 
 	var containerName string
-	if len(cInfo.ContainerReference.Aliases) > 0 {
-		containerName = cInfo.ContainerReference.Aliases[0]
-	} else {
-		containerName = cInfo.ContainerReference.Name
-	}
+	// if len(cInfo.ContainerReference.Aliases) > 0 {
+	// 	containerName = cInfo.ContainerReference.Aliases[0]
+	// } else {
+	// 	containerName = cInfo.ContainerReference.Name
+	// }
+	containerName = cInfo.ContainerReference.Name
 
 	var buffer bytes.Buffer
 	buffer.WriteString(fmt.Sprintf("cName=%s host=%s", containerName, driver.Namespace))

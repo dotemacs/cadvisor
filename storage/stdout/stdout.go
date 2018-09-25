@@ -110,7 +110,8 @@ func (driver *stdoutStorage) AddStats(cInfo *info.ContainerInfo, stats *info.Con
 	containerName = cInfo.ContainerReference.Name
 
 	var buffer bytes.Buffer
-	buffer.WriteString(fmt.Sprintf("cName=%s host=%s", containerName, driver.Namespace))
+	//buffer.WriteString(fmt.Sprintf("cName=%s host=%s", containerName, driver.Namespace))
+	buffer.WriteString(fmt.Sprintf("container-name=%s alias=%s host=%s", cInfo.ContainerReference.Name, cInfo.ContainerReference.Aliases[0], driver.Namespace))
 
 	series := driver.containerStatsToValues(stats)
 	driver.containerFsStatsToValues(&series, stats)
